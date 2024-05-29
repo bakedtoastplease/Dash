@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'PIXY';
+    src: url('fonts/PIXY.ttf') format('truetype');
+    /* Укажите путь к вашему файлу шрифта */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'PIXY', Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+#counter {
+    font-size: 3em;
+    margin-bottom: 20px;
+    position: fixed; /* Изменено на fixed */
+    top: 0; /* Перемещаем текст наверх */
+    left: 50%; /* Сдвигаем текст на половину экрана вправо */
+    transform: translateX(-50%); /* Центрируем текст по горизонтали */
+    width: 100%; /* Растягиваем текст на всю ширину экрана */
+    text-align: center;
+    text-shadow: 0 0 px #ffffff;
+}
+
+
+
+
+#clicker-button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+}
+
+#clicker-button img {
+    width: 250px;
+    height: 250px;
+    transition: transform 0.1s ease-in-out;
+}
+
+#clicker-button:active img {
+    transform: scale(0.90);
+}
+
+#clicker-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    margin-top: -50%;
+    margin-left: -50%;
+    border-radius: 50%;
+    box-shadow: 0 0 30px 10px rgba(255, 223, 0, 0.7);
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#click-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #ffffff;
+    font-size: 2em;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: fadeInOut 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%) scale(1.5);
+    }
+}
+
+.bottom-menu {
+    position: absolute;
+    bottom: 0;
+    width: 75%;
+	border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1e1e1e;
+    padding: 15px 0;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.menu-button img {
+    width: 40px;
+    height: 40px;
+}
